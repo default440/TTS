@@ -1,12 +1,8 @@
-﻿using System.Speech.Synthesis;
+﻿using TTS.Synthesizers;
 
-#pragma warning disable CA1416 // Проверка совместимости платформы
+const string testText = "Кроваво-черное ничто пустилось вить систему клеток, связанных внутри, клеток, связанных внутри, клеток в едином стебле и явственно, до жути на фоне тьмы ввысь белым бил фонтан";
 
-SpeechSynthesizer synthesizer = new()
-{
-    Volume = 100,
-    Rate = 0
-};
+ISynthesizer synthesizer = new MicrosoftSpeechSynthesizer();
 
 // Synchronous
-synthesizer.Speak("Кроваво-черное ничто пустилось вить систему клеток, связанных внутри, клеток, связанных внутри, клеток в едином стебле и явственно, до жути на фоне тьмы ввысь белым бил фонтан");
+synthesizer.Speak(testText);
