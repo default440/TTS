@@ -4,12 +4,18 @@
 
 namespace TTS.Synthesizers
 {
+    /// <summary>
+    /// Адаптер для класса System.Speech.Synthesis.SpeechSynthesizer.
+    /// </summary>
+    /// <remarks>
+    /// Работает только с Windows.
+    /// </remarks>
     internal class MicrosoftSpeechSynthesizer : ISynthesizer
     {
         private readonly SpeechSynthesizer _speechSynthesizer;
 
         /// <summary>
-        /// 
+        /// ctor.
         /// </summary>
         internal MicrosoftSpeechSynthesizer() {
             _speechSynthesizer = new()
@@ -21,6 +27,7 @@ namespace TTS.Synthesizers
             _speechSynthesizer.SetOutputToDefaultAudioDevice();
         }
 
+        /// <inheritdoc/>
         void ISynthesizer.Speak(string textToSpeak)
         {
             _speechSynthesizer.Speak(textToSpeak);
