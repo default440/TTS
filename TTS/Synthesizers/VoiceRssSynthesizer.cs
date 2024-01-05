@@ -3,7 +3,7 @@
 namespace TTS.Synthesizers
 {
     /// <summary>
-    /// Синтезатор на основе запросов к https://www.voicerss.org/
+    /// Синтезатор на основе запросов к https://www.voicerss.org/.
     /// </summary>
     /// <remarks>
     /// Для работы необходимо добавить переменную среды VoiceRSS_API_KEY и положить в ней API_KEY от https://www.voicerss.org/.
