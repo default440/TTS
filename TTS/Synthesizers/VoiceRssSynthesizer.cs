@@ -3,7 +3,7 @@
 namespace TTS.Synthesizers
 {
     /// <summary>
-    /// Синтезатор на основе запросов к https://www.voicerss.org/
+    /// Синтезатор на основе запросов к https://www.voicerss.org/.
     /// </summary>
     /// <remarks>
     /// Для работы необходимо добавить переменную среды VoiceRSS_API_KEY и положить в ней API_KEY от https://www.voicerss.org/.
@@ -25,7 +25,7 @@ namespace TTS.Synthesizers
         }
 
         ///<inheritdoc/>
-        void ISynthesizer.Speak(string textToSpeak)
+        Task ISynthesizer.Speak(string textToSpeak)
         {
             string url = $"{_voiceRssUrl}key={_apiKey}&hl={_language}&v={_voiceType}&src={textToSpeak}";
             
@@ -39,6 +39,8 @@ namespace TTS.Synthesizers
                     Thread.Sleep(1000);
                 }
             }
+
+            return Task.CompletedTask;
         }
 
         internal enum VoiceType
