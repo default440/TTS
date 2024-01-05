@@ -25,7 +25,7 @@ namespace TTS.Synthesizers
         }
 
         ///<inheritdoc/>
-        void ISynthesizer.Speak(string textToSpeak)
+        Task ISynthesizer.Speak(string textToSpeak)
         {
             string url = $"{_voiceRssUrl}key={_apiKey}&hl={_language}&v={_voiceType}&src={textToSpeak}";
             
@@ -39,6 +39,8 @@ namespace TTS.Synthesizers
                     Thread.Sleep(1000);
                 }
             }
+
+            return Task.CompletedTask;
         }
 
         internal enum VoiceType

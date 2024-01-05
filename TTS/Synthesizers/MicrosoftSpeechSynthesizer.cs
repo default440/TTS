@@ -28,9 +28,11 @@ namespace TTS.Synthesizers
         }
 
         /// <inheritdoc/>
-        void ISynthesizer.Speak(string textToSpeak)
+        Task ISynthesizer.Speak(string textToSpeak)
         {
             _speechSynthesizer.Speak(textToSpeak);
+
+            return Task.CompletedTask;
         }
     }
 }

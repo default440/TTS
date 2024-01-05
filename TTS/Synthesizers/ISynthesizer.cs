@@ -9,6 +9,6 @@
         /// Метод преобразования текста в речь.
         /// </summary>
         /// <param name="textToSpeak">Текст для преобразования.</param>
-        internal void Speak(string textToSpeak);
+        internal Task Speak(string textToSpeak);
     }
 }
